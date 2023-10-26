@@ -11,17 +11,19 @@ const Catalog = () => {
   const [limit, setLimit] = useState(5);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [currentCar, setCurrentCar] = useState();
-  // const [makeFilter, setMakeFilter] = useState();
-  // const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState('');
+  const [fetchOptions, setFetchOptions] = useState({
+    limit: 5,
+    make: '',
+  });
 
-  // const handleChange = selectedOption => {
-  //   setSelected(selectedOption);
-  // };
-  // console.log(selected.value);
+  const handleChange = selectedOption => {
+    setSelected(selectedOption);
+  };
+  console.log(selected.value);
 
   const cars = useSelector(selectCars);
   const loading = useSelector(selectLoading);
-  // const error = useSelector(selectError);
   console.log(cars);
   console.log(loading);
   const dispatch = useDispatch();
@@ -38,20 +40,14 @@ const Catalog = () => {
   const handleOpenModal = car => {
     setIsOpenModal(!isOpenModal);
     setCurrentCar(car);
-
-    // setCurrentId(id);
   };
   console.log(currentCar);
-
-  // const onMakeFilter = filteredMake => {
-  //   setMakeFilter(filteredMake);
-  // };
 
   return (
     <>
       <div>
         Catalog
-        <Filter />
+        <Filter handleChange={handleChange} />
         {loading && <h2>Loading</h2>}
         <StyledCatalog>
           {cars.map(car => (
