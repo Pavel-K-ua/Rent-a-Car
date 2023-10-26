@@ -9,13 +9,26 @@ import {
   StyledImgWrapper,
   StyledSecondDescWrapper,
 } from './Card.styled';
-
-import Modal from 'components/Modal/Modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from 'redux/selectors';
+import { toggleFavorite } from 'redux/slice';
 
 const Card = ({ car, handleOpenModal }) => {
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = item => favorites.includes(item);
+  console.log(favorites);
+  console.log(isFavorite());
+  const dispatch = useDispatch();
+
+  const handleToggleFavorite = item => {
+    console.log(item);
+    dispatch(toggleFavorite(item));
+  };
   return (
     <StyledCard key={car.id}>
+      <button onClick={() => handleToggleFavorite(car)}>
+        {isFavorite(car) ? 'Remove from Favorites' : 'Add to Favorites'}
+      </button>
       <StyledImgWrapper $url={car.img}></StyledImgWrapper>
       <StyledHeaderWrapper>
         <p>

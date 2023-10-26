@@ -12,6 +12,19 @@ const initialState = {
 export const slice = createSlice({
   name: 'rentACar',
   initialState,
+  reducers: {
+    toggleFavorite: (state, action) => {
+      const item = action.payload;
+      console.log(item);
+      const index = state.favorites.indexOf(item);
+      console.log(index);
+      if (index === -1) {
+        state.favorites.push(item);
+      } else {
+        state.favorites.splice(index, 1);
+      }
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchAdvertsThunk.fulfilled, (state, { payload }) => {
@@ -28,5 +41,7 @@ export const slice = createSlice({
       });
   },
 });
+
+export const { toggleFavorite } = slice.actions;
 
 export const rentACarReducer = slice.reducer;
