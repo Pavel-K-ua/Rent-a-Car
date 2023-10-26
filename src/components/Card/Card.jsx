@@ -10,13 +10,10 @@ import {
   StyledSecondDescWrapper,
 } from './Card.styled';
 
-import useModal from 'hooks/useModal';
 import Modal from 'components/Modal/Modal';
 import { useDispatch } from 'react-redux';
 
-const Card = ({ ...car }) => {
-  const { open, close, isOpen } = useModal();
-  const dispatch = useDispatch();
+const Card = ({ car, handleOpenModal }) => {
   return (
     <StyledCard key={car.id}>
       <StyledImgWrapper $url={car.img}></StyledImgWrapper>
@@ -40,7 +37,7 @@ const Card = ({ ...car }) => {
         <StyledDesc>{car.functionalities[0]}</StyledDesc>
       </StyledSecondDescWrapper>
 
-      <StyledBtn>Learn more</StyledBtn>
+      <StyledBtn onClick={() => handleOpenModal(car)}>Learn more</StyledBtn>
     </StyledCard>
   );
 };
