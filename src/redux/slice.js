@@ -14,14 +14,16 @@ export const slice = createSlice({
   initialState,
   reducers: {
     toggleFavorite: (state, action) => {
-      const item = action.payload;
-      console.log(item);
-      const index = state.favorites.indexOf(item);
-      console.log(index);
-      if (index === -1) {
-        state.favorites.push(item);
+      // const item = action.payload;
+      // console.log(item);
+      // const index = state.favorites.indexOf(item);
+      // console.log(index);
+      if (!state.favorites?.map(item => item.id).includes(action.payload.id)) {
+        state.favorites.push(action.payload);
       } else {
-        state.favorites.splice(index, 1);
+        state.favorites = state.favorites.filter(
+          item => item.id !== action.payload.id
+        );
       }
     },
   },
