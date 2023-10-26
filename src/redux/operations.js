@@ -7,9 +7,11 @@ const carsApi = axios.create({
 
 export const fetchAdvertsThunk = createAsyncThunk(
   'fetchAdverts',
-  async (limit, thunkAPI) => {
+  async ({ limit, make }, thunkAPI) => {
     try {
-      const { data } = await carsApi.get(`/adverts?page=1&limit=${limit}`);
+      const { data } = await carsApi.get(
+        `/adverts?page=1&limit=${limit}&make=${make}`
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -11,11 +11,11 @@ const Catalog = () => {
   const [limit, setLimit] = useState(5);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [currentCar, setCurrentCar] = useState();
-  const [selected, setSelected] = useState('');
-  const [fetchOptions, setFetchOptions] = useState({
-    limit: 5,
-    make: '',
-  });
+  const [selected, setSelected] = useState({ label: 'All', value: '' });
+  // const [fetchOptions, setFetchOptions] = useState({
+  //   limit: 5,
+  //   make: '',
+  // });
 
   const handleChange = selectedOption => {
     setSelected(selectedOption);
@@ -29,13 +29,21 @@ const Catalog = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAdvertsThunk(limit));
-    console.log(limit);
-  }, [dispatch, limit]);
+    const data = {
+      limit: limit,
+      make: selected.value,
+    };
+    console.log(data);
+    dispatch(fetchAdvertsThunk(data));
+    console.log(data);
+  }, [dispatch, limit, selected]);
 
   const onLoadMore = () => {
     setLimit(prev => prev + 5);
+    // setFetchOptions(prev => prev.limit + 5);
   };
+
+  // console.log(`setFetchOptions ${fetchOptions}`);
 
   const handleOpenModal = car => {
     setIsOpenModal(!isOpenModal);
