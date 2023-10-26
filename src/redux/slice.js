@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchAdvertsThunk, fetchFilteredAdvertsThunk } from './operations';
+import { fetchAdvertsThunk } from './operations';
 
 const initialState = {
   cars: [],

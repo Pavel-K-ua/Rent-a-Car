@@ -9,7 +9,7 @@ const Favorites = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [currentCar, setCurrentCar] = useState();
   const favorites = useSelector(selectFavorites);
-  const isFavorite = item => favorites.includes(item);
+  // const isFavorite = item => favorites.includes(item);
   const handleOpenModal = car => {
     setIsOpenModal(!isOpenModal);
     setCurrentCar(car);

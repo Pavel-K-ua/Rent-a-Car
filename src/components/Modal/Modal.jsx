@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { ModalStyled, OverlayStyled } from './Modal.Styled';
 import { PropTypes } from 'prop-types';
 import {
-  StyledBtn,
   StyledDesc,
   StyledFirstDescWrapper,
   StyledHeaderWrapper,
