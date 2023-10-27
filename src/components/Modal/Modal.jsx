@@ -18,18 +18,7 @@ import {
   StyledModalSecondDescWrapper,
 } from './Modal.Styled';
 import { PropTypes } from 'prop-types';
-import {
-  StyledDesc,
-  StyledFirstDescWrapper,
-  StyledHeaderWrapper,
-  StyledImgWrapper,
-  StyledSecondDescWrapper,
-} from 'components/Card/Card.styled';
-// import { Link } from 'react-router-dom';
-
-export const Modal = ({ close, children, car }) => {
-  console.log(car);
-
+export const Modal = ({ close, car }) => {
   const onOverlayClick = e => {
     if (e.currentTarget === e.target) {
       close();
@@ -129,5 +118,5 @@ export const Modal = ({ close, children, car }) => {
 
 Modal.propTypes = {
   close: PropTypes.func,
-  children: PropTypes.node,
+  car: PropTypes.object,
 };
