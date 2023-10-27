@@ -2,7 +2,7 @@ import Card from 'components/Card/Card';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAdvertsThunk } from 'redux/operations';
-import { selectCars, selectFavorites, selectLoading } from 'redux/selectors';
+import { selectCars, selectLoading } from 'redux/selectors';
 import { StyledCatalog } from './Catalog.styled';
 import { Modal } from 'components/Modal/Modal';
 import Filter from 'components/Filter/Filter';
