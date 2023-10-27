@@ -49,7 +49,7 @@ export const StyledNavLink = styled(NavLink)`
   display: block;
 
   &.active {
-    background-color: #04aa6d;
+    background-color: #3470ff;
     color: white;
   }
   &:hover:not(.active) {

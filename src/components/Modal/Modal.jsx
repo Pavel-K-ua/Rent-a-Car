@@ -75,14 +75,15 @@ export const Modal = ({ close, car }) => {
         <StyledModalFirstDescWrapper>
           <StyledModalDesc>{car.address.split(',')[1]}</StyledModalDesc>
           <StyledModalDesc>{car.address.split(',')[2]}</StyledModalDesc>
-          <StyledModalDesc>{car.rentalCompany}</StyledModalDesc>
-          <StyledModalDesc>Premium</StyledModalDesc>
+          <StyledModalDesc>Id:{car.id}</StyledModalDesc>
+          <StyledModalDesc>Year:{car.year}</StyledModalDesc>
+          <StyledModalDesc>Type:{car.type}</StyledModalDesc>
         </StyledModalFirstDescWrapper>
         <StyledModalSecondDescWrapper>
-          <StyledModalDesc>{car.type}</StyledModalDesc>
-          <StyledModalDesc>{car.model || car.make}</StyledModalDesc>
-          <StyledModalDesc>{car.id}</StyledModalDesc>
-          <StyledModalDesc>{car.functionalities[0]}</StyledModalDesc>
+          <StyledModalDesc>
+            Fuel Consumption:{car.fuelConsumption}
+          </StyledModalDesc>
+          <StyledModalDesc>Engine Size:{car.engineSize}</StyledModalDesc>
         </StyledModalSecondDescWrapper>
         <StyledModalDescription>{car.description}</StyledModalDescription>
         <StyledModalAccess>Accessories and functionalities:</StyledModalAccess>

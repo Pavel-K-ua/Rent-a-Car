@@ -9,7 +9,6 @@ const Favorites = () => {
   return (
     <>
       <div>
-        Favorites
         <StyledCatalog>
           {favorites.map(car => (
             <Card key={car.id} car={car} />

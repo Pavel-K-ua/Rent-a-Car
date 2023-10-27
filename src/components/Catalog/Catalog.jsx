@@ -3,12 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAdvertsThunk } from 'redux/operations';
 import { selectCars, selectLoading } from 'redux/selectors';
-import { StyledCatalog } from './Catalog.styled';
+import {
+  StyledCatalog,
+  StyledCatalogWrap,
+  StyledLoadMore,
+} from './Catalog.styled';
 import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
 
 const Catalog = () => {
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(12);
   const [selected, setSelected] = useState({ label: 'All', value: '' });
 
   const handleChange = selectedOption => {
@@ -28,12 +32,12 @@ const Catalog = () => {
   }, [dispatch, limit, selected]);
 
   const onLoadMore = () => {
-    setLimit(prev => prev + 5);
+    setLimit(prev => prev + 12);
   };
 
   return (
     <>
-      <div>
+      <StyledCatalogWrap>
         {loading && <Loader />}
         <Filter handleChange={handleChange} />
 
@@ -43,9 +47,9 @@ const Catalog = () => {
           ))}
         </StyledCatalog>
         {cars.length && cars.length >= limit ? (
-          <button onClick={onLoadMore}>Load more</button>
+          <StyledLoadMore onClick={onLoadMore}>Load more</StyledLoadMore>
         ) : null}
-      </div>
+      </StyledCatalogWrap>
     </>
   );
 };
