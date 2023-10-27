@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledTitle = styled.h1`
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-size: 46px;
+  margin-bottom: 10px;
 `;
 
 export const StyledBox = styled.div`

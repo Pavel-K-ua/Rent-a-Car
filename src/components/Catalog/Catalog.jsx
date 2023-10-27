@@ -5,6 +5,7 @@ import { fetchAdvertsThunk } from 'redux/operations';
 import { selectCars, selectLoading } from 'redux/selectors';
 import { StyledCatalog } from './Catalog.styled';
 import Filter from 'components/Filter/Filter';
+import Loader from 'components/Loader/Loader';
 
 const Catalog = () => {
   const [limit, setLimit] = useState(5);
@@ -33,15 +34,12 @@ const Catalog = () => {
   return (
     <>
       <div>
-        Catalog
+        {loading && <Loader />}
         <Filter handleChange={handleChange} />
-        {loading && <h2>Loading</h2>}
+
         <StyledCatalog>
           {cars.map(car => (
-            <Card
-              key={car.id}
-              car={car}
-            />
+            <Card key={car.id} car={car} />
           ))}
         </StyledCatalog>
         {cars.length && cars.length >= limit ? (

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import {  Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import {
   OutletWrapper,
   StyledContainer,
@@ -7,6 +7,7 @@ import {
   StyledNavLink,
   StyledUl,
 } from './Layout.styled';
+import Loader from 'components/Loader/Loader';
 
 const Layout = () => {
   return (
@@ -25,7 +26,7 @@ const Layout = () => {
             </StyledLi>
           </StyledUl>
         </nav>
-        <Suspense fallback={<h2>Loading...</h2>}>
+        <Suspense fallback={<Loader />}>
           <OutletWrapper>
             <Outlet />
           </OutletWrapper>
