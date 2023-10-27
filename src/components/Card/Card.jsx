@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyledBtn,
   StyledCard,
@@ -11,9 +11,16 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/selectors';
 import { toggleFavorite } from 'redux/slice';
+import { Modal } from 'components/Modal/Modal';
 
-const Card = ({ car, handleOpenModal }) => {
+const Card = ({ car }) => {
   const favorites = useSelector(selectFavorites);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [currentCar, setCurrentCar] = useState();
+  const handleOpenModal = car => {
+    setIsOpenModal(!isOpenModal);
+    setCurrentCar(car);
+  };
 
   const dispatch = useDispatch();
   const handleToggleFavorite = item => {
@@ -21,35 +28,38 @@ const Card = ({ car, handleOpenModal }) => {
     dispatch(toggleFavorite(item));
   };
   return (
-    <StyledCard key={car.id}>
-      <button onClick={() => handleToggleFavorite(car)}>
-        {favorites?.map(item => item?.id).includes(car?.id)
-          ? 'Remove from Favorites'
-          : 'Add to Favorites'}
-      </button>
-      <StyledImgWrapper $url={car.img}></StyledImgWrapper>
-      <StyledHeaderWrapper>
-        <p>
-          {car.make} <span>{car.model}</span>, {car.year}
-        </p>
-        <p>{car.rentalPrice}</p>
-      </StyledHeaderWrapper>
+    <>
+      <StyledCard key={car.id}>
+        <button onClick={() => handleToggleFavorite(car)}>
+          {favorites?.map(item => item?.id).includes(car?.id)
+            ? 'Remove from Favorites'
+            : 'Add to Favorites'}
+        </button>
+        <StyledImgWrapper $url={car.img}></StyledImgWrapper>
+        <StyledHeaderWrapper>
+          <p>
+            {car.make} <span>{car.model}</span>, {car.year}
+          </p>
+          <p>{car.rentalPrice}</p>
+        </StyledHeaderWrapper>
 
-      <StyledFirstDescWrapper>
-        <StyledDesc>{car.address.split(',')[1]}</StyledDesc>
-        <StyledDesc>{car.address.split(',')[2]}</StyledDesc>
-        <StyledDesc>{car.rentalCompany}</StyledDesc>
-        <StyledDesc>Premium</StyledDesc>
-      </StyledFirstDescWrapper>
-      <StyledSecondDescWrapper>
-        <StyledDesc>{car.type}</StyledDesc>
-        <StyledDesc>{car.model || car.make}</StyledDesc>
-        <StyledDesc>{car.id}</StyledDesc>
-        <StyledDesc>{car.functionalities[0]}</StyledDesc>
-      </StyledSecondDescWrapper>
+        <StyledFirstDescWrapper>
+          <StyledDesc>{car.address.split(',')[1]}</StyledDesc>
+          <StyledDesc>{car.address.split(',')[2]}</StyledDesc>
+          <StyledDesc>{car.rentalCompany}</StyledDesc>
+          <StyledDesc>Premium</StyledDesc>
+        </StyledFirstDescWrapper>
+        <StyledSecondDescWrapper>
+          <StyledDesc>{car.type}</StyledDesc>
+          <StyledDesc>{car.model || car.make}</StyledDesc>
+          <StyledDesc>{car.id}</StyledDesc>
+          <StyledDesc>{car.functionalities[0]}</StyledDesc>
+        </StyledSecondDescWrapper>
 
-      <StyledBtn onClick={() => handleOpenModal(car)}>Learn more</StyledBtn>
-    </StyledCard>
+        <StyledBtn onClick={() => handleOpenModal(car)}>Learn more</StyledBtn>
+      </StyledCard>
+      {isOpenModal && <Modal close={handleOpenModal} car={currentCar}></Modal>}
+    </>
   );
 };
 

@@ -13,12 +13,13 @@ export const StyledBox = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: blue;
+  background-image: url('./day_0088.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: bottom -40px right 2px;
 `;
 
 export const StyledLink = styled.span`
   text-decoration: underline;
   color: orange;
+  font-weight: bold;
 `;

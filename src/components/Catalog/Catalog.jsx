@@ -4,13 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAdvertsThunk } from 'redux/operations';
 import { selectCars, selectLoading } from 'redux/selectors';
 import { StyledCatalog } from './Catalog.styled';
-import { Modal } from 'components/Modal/Modal';
 import Filter from 'components/Filter/Filter';
 
 const Catalog = () => {
   const [limit, setLimit] = useState(5);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [currentCar, setCurrentCar] = useState();
   const [selected, setSelected] = useState({ label: 'All', value: '' });
 
   const handleChange = selectedOption => {
@@ -33,11 +30,6 @@ const Catalog = () => {
     setLimit(prev => prev + 5);
   };
 
-  const handleOpenModal = car => {
-    setIsOpenModal(!isOpenModal);
-    setCurrentCar(car);
-  };
-
   return (
     <>
       <div>
@@ -46,14 +38,16 @@ const Catalog = () => {
         {loading && <h2>Loading</h2>}
         <StyledCatalog>
           {cars.map(car => (
-            <Card key={car.id} car={car} handleOpenModal={handleOpenModal} />
+            <Card
+              key={car.id}
+              car={car}
+            />
           ))}
         </StyledCatalog>
         {cars.length && cars.length >= limit ? (
           <button onClick={onLoadMore}>Load more</button>
         ) : null}
       </div>
-      {isOpenModal && <Modal close={handleOpenModal} car={currentCar}></Modal>}
     </>
   );
 };

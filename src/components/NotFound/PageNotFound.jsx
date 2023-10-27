@@ -14,19 +14,18 @@ const PageNotFound = () => {
     setY(offsetY);
   };
   return (
-    <StyledBox
-      onMouseMove={handleMouseMove}
-      style={{
-        textShadow: `${x}px ${y}px 10px rgba(255, 255, 255, 0.5)`,
-      }}
-    >
-      <StyledTitle>
-        Error $404.04
+    <StyledBox onMouseMove={handleMouseMove}>
+      <StyledTitle
+        style={{
+          textShadow: `${x}px ${y}px 10px rgba(0, 0, 0, 0.8)`,
+        }}
+      >
+        Error 404
         <br />
-        Money not found
+        Car not found
       </StyledTitle>
       <Link to={'/'}>
-        You can go to <StyledLink>home page</StyledLink> to find your money
+        You can go to <StyledLink>home page</StyledLink> to find your car
       </Link>
     </StyledBox>
   );
