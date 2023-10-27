@@ -1,5 +1,22 @@
 import { useEffect } from 'react';
-import { ModalStyled, OverlayStyled } from './Modal.Styled';
+import {
+  ModalStyled,
+  OverlayStyled,
+  StyledCloseBtn,
+  StyledModalAccess,
+  StyledModalAccsesWrapper,
+  StyledModalConditions,
+  StyledModalDesc,
+  StyledModalDescription,
+  StyledModalFirstDescWrapper,
+  StyledModalFuncWrapper,
+  StyledModalHeaderWrapper,
+  StyledModalImgWrapper,
+  StyledModalLink,
+  StyledModalMillPriceWrapper,
+  StyledModalRentCondWrapper,
+  StyledModalSecondDescWrapper,
+} from './Modal.Styled';
 import { PropTypes } from 'prop-types';
 import {
   StyledDesc,
@@ -8,10 +25,11 @@ import {
   StyledImgWrapper,
   StyledSecondDescWrapper,
 } from 'components/Card/Card.styled';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export const Modal = ({ close, children, car }) => {
   console.log(car);
+
   const onOverlayClick = e => {
     if (e.currentTarget === e.target) {
       close();
@@ -33,29 +51,77 @@ export const Modal = ({ close, children, car }) => {
   return (
     <OverlayStyled onClick={onOverlayClick}>
       <ModalStyled>
-        <button onClick={() => close()}>X</button>
-        <StyledImgWrapper $url={car.img}></StyledImgWrapper>
-        <StyledHeaderWrapper>
+        <StyledCloseBtn onClick={() => close()}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M18 6L6 18"
+              stroke="#121417"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M6 6L18 18"
+              stroke="#121417"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </StyledCloseBtn>
+        <StyledModalImgWrapper $url={car.img}></StyledModalImgWrapper>
+        <StyledModalHeaderWrapper>
           <p>
             {car.make} <span>{car.model}</span>, {car.year}
           </p>
           <p>{car.rentalPrice}</p>
-        </StyledHeaderWrapper>
+        </StyledModalHeaderWrapper>
 
-        <StyledFirstDescWrapper>
-          <StyledDesc>{car.address.split(',')[1]}</StyledDesc>
-          <StyledDesc>{car.address.split(',')[2]}</StyledDesc>
-          <StyledDesc>{car.rentalCompany}</StyledDesc>
-          <StyledDesc>Premium</StyledDesc>
-        </StyledFirstDescWrapper>
-        <StyledSecondDescWrapper>
-          <StyledDesc>{car.type}</StyledDesc>
-          <StyledDesc>{car.model || car.make}</StyledDesc>
-          <StyledDesc>{car.id}</StyledDesc>
-          <StyledDesc>{car.functionalities[0]}</StyledDesc>
-        </StyledSecondDescWrapper>
-
-        <Link to="tel:9876543210">Rental car</Link>
+        <StyledModalFirstDescWrapper>
+          <StyledModalDesc>{car.address.split(',')[1]}</StyledModalDesc>
+          <StyledModalDesc>{car.address.split(',')[2]}</StyledModalDesc>
+          <StyledModalDesc>{car.rentalCompany}</StyledModalDesc>
+          <StyledModalDesc>Premium</StyledModalDesc>
+        </StyledModalFirstDescWrapper>
+        <StyledModalSecondDescWrapper>
+          <StyledModalDesc>{car.type}</StyledModalDesc>
+          <StyledModalDesc>{car.model || car.make}</StyledModalDesc>
+          <StyledModalDesc>{car.id}</StyledModalDesc>
+          <StyledModalDesc>{car.functionalities[0]}</StyledModalDesc>
+        </StyledModalSecondDescWrapper>
+        <StyledModalDescription>{car.description}</StyledModalDescription>
+        <StyledModalAccess>Accessories and functionalities:</StyledModalAccess>
+        <StyledModalAccsesWrapper>
+          {car.accessories.map(item => (
+            <StyledModalDesc key={item}>{item}</StyledModalDesc>
+          ))}
+        </StyledModalAccsesWrapper>
+        <StyledModalFuncWrapper>
+          {car.functionalities.map(item => (
+            <StyledModalDesc key={item}>{item}</StyledModalDesc>
+          ))}
+        </StyledModalFuncWrapper>
+        <StyledModalAccess>Rental Conditions: </StyledModalAccess>
+        <StyledModalRentCondWrapper>
+          {car.rentalConditions.split('\n').map(item => (
+            <StyledModalConditions key={item}>{item}</StyledModalConditions>
+          ))}
+        </StyledModalRentCondWrapper>
+        <StyledModalMillPriceWrapper>
+          <StyledModalConditions>
+            Mileage: <span>{new Intl.NumberFormat().format(car.mileage)}</span>
+          </StyledModalConditions>
+          <StyledModalConditions>
+            Price: <span>{car.rentalPrice}</span>
+          </StyledModalConditions>
+        </StyledModalMillPriceWrapper>
+        <StyledModalLink to="tel:9876543210">Rental car</StyledModalLink>
       </ModalStyled>
     </OverlayStyled>
   );

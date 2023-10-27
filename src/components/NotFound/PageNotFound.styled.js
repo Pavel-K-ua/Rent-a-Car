@@ -6,8 +6,8 @@ export const StyledTitle = styled.h1`
 `;
 
 export const StyledBox = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100lvw;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;

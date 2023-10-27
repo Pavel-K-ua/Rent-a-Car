@@ -35,6 +35,10 @@ export const StyledBtn = styled.button`
   font-weight: 600;
   color: #fff;
   line-height: 20px; /* 142.857% */
+  transition: background-color 0.1s;
+  &:hover {
+    background-color: #0b44cd;
+  }
 `;
 
 export const StyledHeaderWrapper = styled.div`
