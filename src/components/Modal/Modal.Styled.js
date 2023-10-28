@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import noImg from '../Card/noCarImg.jpg';
 
 export const OverlayStyled = styled.div`
   position: fixed;
@@ -41,8 +42,8 @@ export const StyledModalImgWrapper = styled.div`
   min-height: 230px;
   max-height: 248px;
   width: 461px;
-  background-color: grey;
-  background-image: url(${props => props.$url});
+  background-color: lightgrey;
+  background-image: url(${props => props.$url}), url(${noImg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -8,6 +8,7 @@ import {
   StyledUl,
 } from './Layout.styled';
 import Loader from 'components/Loader/Loader';
+import ScrollButton from 'components/ToTopButton/ScrollButton';
 
 const Layout = () => {
   return (
@@ -32,6 +33,7 @@ const Layout = () => {
           </OutletWrapper>
         </Suspense>
       </StyledContainer>
+      <ScrollButton />
     </>
   );
 };

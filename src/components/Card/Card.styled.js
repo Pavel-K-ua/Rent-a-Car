@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import noImg from './noCarImg.jpg';
 
 export const StyledCard = styled.li`
   display: flex;
@@ -25,8 +26,8 @@ export const StyledCloseBtn = styled.button`
 export const StyledImgWrapper = styled.div`
   min-height: 268px;
   width: 274px;
-  background-color: grey;
-  background-image: url(${props => props.$url});
+  background-color: lightgrey;
+  background-image: url(${props => props.$url}), url(${noImg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

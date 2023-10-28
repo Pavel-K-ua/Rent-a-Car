@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import img from './day_0088.jpg';
 
 export const StyledTitle = styled.h1`
   font-size: 46px;
@@ -13,7 +14,7 @@ export const StyledBox = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url('./day_0088.png');
+  background-image: url(${img});
   background-repeat: no-repeat;
   background-position: bottom -40px right 2px;
 `;

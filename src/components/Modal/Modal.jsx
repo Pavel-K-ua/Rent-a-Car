@@ -111,7 +111,7 @@ export const Modal = ({ close, car }) => {
             Price: <span>{car.rentalPrice}</span>
           </StyledModalConditions>
         </StyledModalMillPriceWrapper>
-        <StyledModalLink to="tel:9876543210">Rental car</StyledModalLink>
+        <StyledModalLink to="tel:+380730000000">Rental car</StyledModalLink>
       </ModalStyled>
     </OverlayStyled>
   );
