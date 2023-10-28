@@ -47,6 +47,7 @@ export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   padding: 16px;
   display: block;
+  transition: all 0.1s;
 
   &.active {
     background-color: #3470ff;
