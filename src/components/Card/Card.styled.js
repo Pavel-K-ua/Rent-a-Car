@@ -12,12 +12,13 @@ export const StyledCard = styled.li`
 export const StyledCloseBtn = styled.button`
   position: absolute;
   top: 14px;
-  right: 14px;
-  width: 18px;
-  height: 18px;
+  right: 28px;
+  width: 1px;
+  height: 1px;
   padding: 0;
   background: transparent;
   transition: scale 0.1s;
+  box-shadow: 10px 10px 10px 10px rgb(150, 150, 150);
   &:hover {
     scale: 110%;
   }
