@@ -15,12 +15,12 @@ export const OverlayStyled = styled.div`
 `;
 export const ModalStyled = styled.div`
   max-width: 541px;
-  max-height: 752px;
+  max-height: 722px;
   padding: 40px;
   border-radius: 24px;
   background: #fff;
   position: relative;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 `;
 export const StyledCloseBtn = styled.button`
   position: absolute;
@@ -38,7 +38,8 @@ export const StyledCloseBtn = styled.button`
   }
 `;
 export const StyledModalImgWrapper = styled.div`
-  height: 248px;
+  min-height: 230px;
+  max-height: 248px;
   width: 461px;
   background-color: grey;
   background-image: url(${props => props.$url});
@@ -117,7 +118,7 @@ export const StyledModalDescription = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 142.857% */
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 `;
 
 export const StyledModalAccess = styled.p`
@@ -137,7 +138,7 @@ export const StyledModalAccsesWrapper = styled.div`
 
 export const StyledModalFuncWrapper = styled.div`
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 `;
 export const StyledModalRentCondWrapper = styled.div`
   display: flex;
@@ -146,7 +147,7 @@ export const StyledModalRentCondWrapper = styled.div`
 `;
 export const StyledModalMillPriceWrapper = styled.div`
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 `;
 
 export const StyledModalConditions = styled.p`
