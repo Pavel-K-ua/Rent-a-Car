@@ -14,12 +14,13 @@ export const OverlayStyled = styled.div`
   z-index: 1200;
 `;
 export const ModalStyled = styled.div`
-  width: 541px;
-  /* height: 752px; */
+  max-width: 541px;
+  max-height: 752px;
   padding: 40px;
   border-radius: 24px;
   background: #fff;
   position: relative;
+  overflow-y: auto;
 `;
 export const StyledCloseBtn = styled.button`
   position: absolute;
@@ -39,7 +40,7 @@ export const StyledCloseBtn = styled.button`
 export const StyledModalImgWrapper = styled.div`
   height: 248px;
   width: 461px;
-
+  background-color: grey;
   background-image: url(${props => props.$url});
   background-position: center;
   background-repeat: no-repeat;
