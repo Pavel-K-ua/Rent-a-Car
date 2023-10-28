@@ -17,7 +17,6 @@ import {
   StyledModalRentCondWrapper,
   StyledModalSecondDescWrapper,
 } from './Modal.Styled';
-import { PropTypes } from 'prop-types';
 export const Modal = ({ close, car }) => {
   const onOverlayClick = e => {
     if (e.currentTarget === e.target) {
@@ -115,9 +114,4 @@ export const Modal = ({ close, car }) => {
       </ModalStyled>
     </OverlayStyled>
   );
-};
-
-Modal.propTypes = {
-  close: PropTypes.func,
-  car: PropTypes.object,
 };

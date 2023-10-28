@@ -39,12 +39,10 @@ export const StyledBtn = styled.button`
   display: flex;
   width: 274px;
   height: 44px;
-  /* padding: 12px 98px; */
   justify-content: center;
   align-items: center;
   border-radius: 12px;
   background: #3470ff;
-  /* font-family: Manrope; */
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -61,7 +59,6 @@ export const StyledHeaderWrapper = styled.div`
   justify-content: space-between;
   color: #121417;
   padding-right: 8px;
-  /* font-family: Manrope; */
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -83,17 +80,14 @@ export const StyledSecondDescWrapper = styled.div`
 export const StyledDesc = styled.p`
   color: rgba(18, 20, 23, 0.5);
   display: inline-block;
-  /* white-space: nowrap; */
   text-overflow: clip;
   max-width: 140px;
   max-height: 18px;
-  /* font-family: Manrope; */
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 150% */
   margin-right: 6px;
-  /* &:not(:last-child)  */
 
   &::after {
     padding-left: 6px;

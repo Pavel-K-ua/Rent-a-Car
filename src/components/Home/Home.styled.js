@@ -5,7 +5,6 @@ export const StyledHomeWrapper = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0;
-  /* background-color: red; */
   background-image: url(${img});
   background-size: cover;
   display: flex;

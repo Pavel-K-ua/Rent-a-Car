@@ -21,7 +21,6 @@ export const ModalStyled = styled.div`
   border-radius: 24px;
   background: #fff;
   position: relative;
-  /* overflow-y: auto; */
 `;
 export const StyledCloseBtn = styled.button`
   position: absolute;
@@ -69,8 +68,6 @@ export const StyledModalHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   color: #121417;
-
-  /* font-family: Manrope; */
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -93,14 +90,11 @@ export const StyledModalSecondDescWrapper = styled.div`
 
 export const StyledModalDesc = styled.p`
   color: rgba(18, 20, 23, 0.5);
-
-  /* font-family: Manrope; */
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 150% */
   margin-right: 6px;
-  /* &:not(:last-child)  */
 
   &::after {
     padding-left: 6px;

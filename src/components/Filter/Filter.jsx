@@ -1,5 +1,3 @@
-// import React, { useState } from 'react';
-// import Select from 'react-select';
 import { StyledSelect } from './Filter.styled';
 
 const Filter = ({ handleChange }) => {
@@ -32,17 +30,6 @@ const Filter = ({ handleChange }) => {
   return (
     <div>
       <StyledSelect options={options} onChange={handleChange} />
-
-      {/* <label>
-        Pick a car:
-        <select name="selectCar" defaultValue="">
-          {selectCarOptions.map(option => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </label> */}
     </div>
   );
 };
